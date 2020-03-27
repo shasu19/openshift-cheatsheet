@@ -1,0 +1,15 @@
+
+######## Debugging OSE pod in Eclipse locally #######
+1. Login to OSE machine
+2. select pod for which want to debug
+$oc get pods | grep -i <pod_name>
+
+3. add one more docker variable to pod
+JAVA_TOOLS_OPTIONS=-agentlib:jdwp=transport=dt_socket,address=8002,server=y,suspend=n
+
+4. Restart the pod and then start port-forward to local machine if machine is running in another machine
+
+oc port-forward <pod_name> 5432:5432
+example: oc port-forward postgres 5432:5432
+
+
