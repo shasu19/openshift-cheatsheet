@@ -1,0 +1,43 @@
+
+
+####### how to login OSE machine
+Using:
+	Web browser
+	Using linux command line
+
+########################################
+
+We can login from web browser and from right top corner, get login command.
+
+$ oc login http://shasu19.learning.net:8443 --token=nmayXGzFdetails
+
+########
+
+## get list of pods
+$ oc get pods
+
+## get specific pod
+$ oc get pods | grep -i <pod_name>
+example: $ oc get pods | grep -i postgres
+
+###################################################
+
+## list of deployments
+$ oc get deployments
+
+## list of services
+$ oc get services
+
+## list of routes
+$ oc get routes
+
+####################################################
+
+## port forwarding to local machine
+$ oc get pods | grep -i postgres
+$ consider we get this name of pod 'postgres-shj3488'
+$ oc port-forward <pod_name> local_port:pod_port
+$ oc port-forward postgres-shj3488 5432:5432
+
+#####################################################
+
