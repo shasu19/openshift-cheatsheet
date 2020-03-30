@@ -1,0 +1,49 @@
+
+
+        ####### login to OSE machine,
+        ## if failig to login to web console in openshift
+
+        $ oc login http://shasu19.learning.net:8443 --token=nmayXGzFdetails
+          resutl: failed to login
+
+        
+        #commands to start webconsole (if openshift is not accessible from ui but machine is accessible)
+        oc login -u system:admin
+        commands:
+            - oc project openshift-web-console
+            - oc get pods
+            - oc delete pod webconsole-7fc8759f7b-7p8gf
+            - oc get pods
+            - systemctl restart docker
+            - oc login -u system:system
+            - oc project mylearningproject
+            - history | grep force
+            - oc delete pods --all --grace-period=0 --force
+            
+        #========================================================================
+
+        # how to check nfs status
+        nfs status:
+            - systemctl status nfs
+            - systemctl stop nfs
+            - systemctl start nfs
+            - systemctl enable nfs
+            - systemctl restart docker
+            - switch to project for which want to delete all pods
+            - oc login -u system:system
+            - delete all pods as openshift will create pods again
+            - oc delete pods –all –grace-period=0 –force
+        #=========================================================================
+        
+        # adding service to firewall
+        firewall access commands:
+            - google search results recommended
+            - firewall-cmd --permanent --add-service=nfs/rpcbind/mountd
+            - firewall-cmd --reload
+        #===========================================================================
+
+            
+
+        
+            
+            
